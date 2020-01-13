@@ -1,0 +1,34 @@
+@import 'assets/styles/colors.scss';
+
+.slidebar-container{
+  background-color: $Black;
+  min-height: 100vh;
+  position: absolute;
+  width:18%;
+  .header{
+    display: flex;
+    width: 100%;
+    margin-bottom:100px;
+    .App-logo{
+      height:100px;
+      margin-top:8%;
+      width:70%
+    }
+    .title{
+      color:$Blue;
+      font-size: 32px;
+    }
+  }
+  .user-list-container{
+    .user{
+        color:$Blue;
+        margin:10px;
+        font-size:20px;
+        margin-left:40px;
+        cursor: pointer;
+        &.underline{
+          text-decoration: underline;
+        }
+      }
+  }
+}
