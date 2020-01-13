@@ -1,25 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Dashboard } from 'containers';
+import { ROUTES } from 'consts';
+
+import { Logo } from 'assets/images';
+import './App.scss';
 
 function App() {
+  const [active, setActive] = useState(true);
+
+  const toggle = () => {
+    setActive(false);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Route path={ROUTES.DASHBOARD} exact component={Dashboard} />
+      <div className="App">
+        {active && (window.location.pathname === '/') ?
+          <div className='intro'>
+            <Logo className='App-logo' />
+            <p onClick={toggle}><Link className="App-link" to='/dashboard' exact='true'>Chat Bot</Link></p>
+          </div> : null
+        }
+      </div>
+    </Router>
   );
 }
 
