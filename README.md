@@ -1,3 +1,8 @@
+
+# React Redux-hooks
+Sample project of react with redux using new react hooks
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
