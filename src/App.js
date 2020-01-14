@@ -15,7 +15,7 @@ function App() {
   const toggle = () => {
     showDashboard(dispatch);
   }
-  console.log("users", users)
+
   return (
     <Router>
       <Route path={ROUTES.DASHBOARD} exact component={Dashboard} />
