@@ -10,12 +10,12 @@ import './App.scss';
 
 function App() {
   const dispatch = useDispatch();
-  const users = useSelector(state => state.userData.users);
+  const users = useSelector(state => state.userData);
 
   const toggle = () => {
     showDashboard(dispatch);
   }
-
+  console.log("users", users)
   return (
     <Router>
       <Route path={ROUTES.DASHBOARD} exact component={Dashboard} />
