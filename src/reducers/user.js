@@ -14,8 +14,19 @@ const users = (state = INITIAL_STATE.USERS, action) => {
   }
 }
 
+const showDashboard = (state = INITIAL_STATE.SHOW_DASHBOARD, action) => {
+  const { type } = action;
+  switch (type) {
+    case USERS.SHOW_DASHBOARD:
+      return !state;
+    default:
+      return state;
+  }
+}
+
 const userReducer = combineReducers({
-  users
+  users,
+  showDashboard
 });
 
 export default userReducer;

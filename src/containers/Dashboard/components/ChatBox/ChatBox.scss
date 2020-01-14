@@ -1,1 +1,8 @@
 @import 'assets/styles/colors.scss';
+
+.chat-box-container{
+  width:82%;
+  .chat-space{
+    min-height:90vh;
+  }
+}

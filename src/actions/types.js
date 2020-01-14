@@ -1,4 +1,5 @@
 export const USERS = {
+  SHOW_DASHBOARD: 'show_dashboard',
   FETCH_USERS: 'fetch_users',
   ADD_USERS: 'add_users'
 }

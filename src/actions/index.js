@@ -1,5 +1,9 @@
 import { USERS, CHAT } from './types';
 
+export const showDashboard = (dispatch) => {
+  dispatch({ type: USERS.SHOW_DASHBOARD });
+}
+
 export const fetchUsers = (dispatch) => {
   dispatch({ type: USERS.FETCH_USERS });
 }

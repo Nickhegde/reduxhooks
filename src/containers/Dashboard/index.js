@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux'
-import { SlideBar, ChatBox, InputBox } from './components';
+import { SlideBar, ChatBox } from './components';
 
 import './Dashboard.scss';
 
@@ -9,7 +9,6 @@ function Dashboard() {
     <div className='dashboard-container'>
       <SlideBar></SlideBar>
       <ChatBox></ChatBox>
-      <InputBox></InputBox>
     </div>
   );
 }
