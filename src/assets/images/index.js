@@ -1,4 +1,4 @@
 import { ReactComponent as Logo } from './logo.svg'
-import 'assets/images/chevron.svg';
+import { ReactComponent as SendArrow } from './arrow.svg';
 
-export { Logo };
+export { Logo, SendArrow };

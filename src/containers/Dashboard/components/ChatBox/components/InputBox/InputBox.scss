@@ -1,0 +1,29 @@
+@import 'assets/styles/colors.scss';
+.input-box-container{
+  width:90%;
+  margin:auto;
+  display: flex;
+  .text-input{
+    width:90%;
+    border-radius: 50px;
+    height:40px;
+    border: none;
+    padding-left:20px;
+    font-size:15px;
+  }
+  input:focus{
+      outline: none;
+    }
+    .send-btn{
+      background-color: $Bg;
+      border: none;
+      cursor: pointer;
+      .send-arrow{
+        height:30px;
+        width:30px;
+      }
+    }
+    button:focus{
+      outline: none;
+    }
+}
