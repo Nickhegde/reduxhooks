@@ -5,17 +5,19 @@ import { addChat } from 'actions';
 
 import './InputBox.scss';
 
-export default function InputBox() {
+export default function InputBox({ fetchChat, toggleChatUpdate, chatUpdate }) {
   const dispatch = useDispatch();
   const [text, setText] = useState('');
   const chatData = useSelector(state => state.chatData);
-
+  const { loginIndex, activeChatIndex, chat } = chatData;
   const onTextChange = (event) => {
     setText(event.target.value);
   }
 
   const onSend = () => {
-    addChat(dispatch, chatData.loginIndex, chatData.activeChatIndex, text);
+    addChat(dispatch, loginIndex, activeChatIndex, text);
+    fetchChat(activeChatIndex);
+    toggleChatUpdate(!chatUpdate);
     setText('');
   }
 

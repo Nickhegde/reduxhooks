@@ -23,10 +23,10 @@ export const setActiveChatIndex = (dispatch, id) => {
 }
 
 
-export const fetchActiveChat = (dispatch, id) => {
+export const fetchActiveChat = (dispatch, loginId, id, chatBox) => {
   dispatch({
     type: CHAT.FETCH_ACTIVE_CHAT,
-    payload: { id }
+    payload: { loginId, id, chatBox }
   });
 }
 

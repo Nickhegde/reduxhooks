@@ -4,5 +4,17 @@
   width:82%;
   .chat-space{
     min-height:90vh;
+    margin-left:20px;
+    margin-right:20px;
+    margin-top: 10px;
+    .chat-txt{
+      background-color: $Black;
+      color:$Blue;
+      width:fit-content;
+      padding:10px;
+      border-radius: 10px;
+      margin-left:auto;
+      margin-bottom: 10px;
+    }
   }
 }

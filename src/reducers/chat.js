@@ -25,9 +25,22 @@ const setActiveChatIndex = (state = INITIAL_STATE.ACTIVE_CHAT_INDEX, action) => 
 
 const fetchActiveChat = (state = INITIAL_STATE.ACTIVE_CHAT, action) => {
   const { type, payload } = action;
+
   switch (type) {
     case CHAT.FETCH_ACTIVE_CHAT:
-      return [];
+      const chats = payload.chatBox;
+      if (chats.length !== 0) {
+        const outerIndex = payload.loginId <= payload.id ? payload.loginId : payload.id,
+          innerIndex = outerIndex === payload.id ? payload.loginId : payload.id;
+        chats.map((chat, index) => {
+          if (index === outerIndex && chat[innerIndex])
+            state = chat[innerIndex];
+          else {
+            state = [];
+          }
+        })
+      }
+      return state;
     default:
       return state;
   }
@@ -37,13 +50,25 @@ const addChat = (state = INITIAL_STATE.CHAT, action) => {
   const { type, payload } = action;
   switch (type) {
     case CHAT.ADD_CHAT:
-      const outerIndex = payload.loginId <= payload.id ? payload.loginId : payload.id;
-      const innerIndex = outerIndex === payload.id ? payload.loginId : payload.id;
-      const chatArray = [];
-      const chatObject = {};
-      chatArray.push(payload.text);
-      chatObject[innerIndex] = chatArray;
-      state[outerIndex] = chatObject;
+      const outerIndex = payload.loginId <= payload.id ? payload.loginId : payload.id,
+        innerIndex = outerIndex === payload.id ? payload.loginId : payload.id;
+      state.map((chat, index) => {
+        if (index === outerIndex) {
+          if (chat[innerIndex]) {
+            chat[innerIndex].push(payload.text)
+          } else {
+            chat[innerIndex] = [payload.text]
+          }
+        }
+      });
+
+      if (state.length === 0) {
+        const chatArray = [];
+        const chatObject = {};
+        chatArray.push(payload.text);
+        chatObject[innerIndex] = chatArray;
+        state[outerIndex] = chatObject;
+      }
       return state;
     default:
       return state;
