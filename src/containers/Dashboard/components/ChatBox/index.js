@@ -7,9 +7,6 @@ export default function ChatBox({ fetchChat, chatData }) {
   const { loginIndex, activeChatIndex, activeChat, chat } = chatData;
   const [chatUpdate, toggleChatUpdate] = useState(false);
 
-  console.log("chat=", chat);
-  console.log("activeChat=", activeChat);
-
   useEffect(() => {
     fetchChat(activeChatIndex);
   }, [chatUpdate])
