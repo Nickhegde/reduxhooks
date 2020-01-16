@@ -28,8 +28,17 @@ export default function InputBox({ fetchChat, toggleChatUpdate, chatUpdate }) {
         className='text-input'
         value={text}
         onChange={onTextChange}
+        onKeyPress={event => {
+          if (event.key === "Enter" && text !== '') {
+            onSend();
+          }
+        }}
       ></input>
-      <button className='send-btn' onClick={text === '' ? () => { } : onSend}><SendArrow className='send-arrow'></SendArrow></button>
+      <button
+        className='send-btn'
+        onClick={text === '' ? () => { } : onSend}>
+        <SendArrow className='send-arrow'></SendArrow>
+      </button>
     </div>
   );
 }

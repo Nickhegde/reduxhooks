@@ -10,7 +10,8 @@
     .chat-txt{
       background-color: $Black;
       color:$Blue;
-      width:fit-content;
+      width: fit-content;
+      max-width:50%;
       padding:10px;
       border-radius: 10px;
       margin-left:auto;
