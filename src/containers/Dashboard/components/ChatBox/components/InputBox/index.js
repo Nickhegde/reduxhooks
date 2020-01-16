@@ -29,7 +29,7 @@ export default function InputBox({ fetchChat, toggleChatUpdate, chatUpdate }) {
         value={text}
         onChange={onTextChange}
         onKeyPress={event => {
-          if (event.key === "Enter" && text !== '') {
+          if (event.key === 'Enter' && !event.shiftKey && text !== '') {
             onSend();
           }
         }}

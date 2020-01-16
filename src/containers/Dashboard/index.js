@@ -12,7 +12,9 @@ function Dashboard() {
   const { loginIndex, activeChatIndex, activeChat, chat } = chatData;
 
   useEffect(() => {
-    window.onpopstate = (e) => showDashboard(dispatch);
+    window.onpopstate = (e) => {
+      showDashboard(dispatch);
+    };
   });
 
   const fetchChat = (activeIndex) => {

@@ -11,8 +11,11 @@ export const setLoginIndex = (dispatch, index) => {
   });
 }
 
-export const fetchUsers = (dispatch) => {
-  dispatch({ type: USERS.FETCH_USERS });
+export const fetchUsers = (dispatch, index) => {
+  dispatch({
+    type: USERS.FETCH_USERS,
+    payload: { index }
+  });
 }
 
 export const setActiveChatIndex = (dispatch, id) => {
