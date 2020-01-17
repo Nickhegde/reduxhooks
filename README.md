@@ -2,10 +2,10 @@
 # React Redux-hooks
 Sample project of react with redux using new react hooks
 
-##Chat Bot
+## Chat Bot
 It is a simple one person chat application with no backend to provide data. It is basically a react-redux hooks tutorial project.
 
-###About
+### About
 In this application there is a login page where the user can login as any of given 4 users, and send text messages to himself or any of the other 3 and then if he logins as any other user he/she will be able to send the text messages received and reply to the message. All the chat data will be stored in redux store and its fetched from the store whenever required. As said earlier, it is an application to demo the usage of react-redux-hooks.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
