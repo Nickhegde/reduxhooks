@@ -24,6 +24,7 @@ function App() {
     setActiveChatIndex(dispatch, index);
   }
 
+
   return (
     <Router>
       <Route path={ROUTES.DASHBOARD} exact component={Dashboard} />
@@ -32,7 +33,7 @@ function App() {
           <div className='intro'>
             <Logo className='App-logo' />
             <div className="App-link">{STRINGS.CHAT_BOT}</div>
-            <select name='user-name' className='user-name' id='user-name-select' onChange={onUserNameChange}>
+            <select name='user-name' className='user-name' id='user-name-select' onChange={onUserNameChange} defaultValue={userName}>
               <option value="">{STRINGS.SELECT}</option>
               {users.users.map((user, index) => {
                 return (
@@ -40,7 +41,7 @@ function App() {
                 )
               })}
             </select>
-            <Link className="App-link" to='/dashboard' exact='true'><button className='login' onClick={onLogin}>{STRINGS.LOGIN}</button></Link>
+            <Link className="App-link" to={`${userName ? '/dashboard' : ''}`} exact='true'><button className={`login ${userName ? '' : 'disabled'}`} onClick={userName ? onLogin : () => { }}>{STRINGS.LOGIN}</button></Link>
           </div> : null
         }
       </div>
