@@ -3,5 +3,5 @@ export default {
   SELECT: 'Select',
   LOGIN: 'Login',
   YOU: '(You)',
-  BACK: 'Back'
+  LOGOUT: 'Logout'
 }

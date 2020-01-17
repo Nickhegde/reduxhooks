@@ -26,7 +26,7 @@ export default function SlideBar({ fetchChat }) {
         <Logo className='App-logo' />
         <p className='title'>{STRINGS.CHAT_BOT}</p>
       </div>
-      <Link className="back" to='/' exact='true'><button className='back-btn' onClick={() => { showDashboard(dispatch) }}>{STRINGS.BACK}</button></Link>
+      <Link className="back" to='/' exact='true'><button className='back-btn' onClick={() => { showDashboard(dispatch) }}>{STRINGS.LOGOUT}</button></Link>
       <div className='user-list-container'>
         {
           users.map((user, index) => {
