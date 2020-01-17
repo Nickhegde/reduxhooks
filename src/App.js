@@ -40,7 +40,7 @@ function App() {
                 )
               })}
             </select>
-            <Link className="App-link" to='/dashboard' exact='true'><button className='login' onClick={onLogin}>{STRINGS.LOGIN}</button></Link>
+            <Link className="App-link" to='/dashboard' exact='true'><button className='login' onClick={onLogin} disabled={userName ? 'false' : 'true'}>{STRINGS.LOGIN}</button></Link>
           </div> : null
         }
       </div>
