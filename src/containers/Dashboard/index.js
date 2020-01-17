@@ -9,10 +9,12 @@ function Dashboard() {
   const dispatch = useDispatch();
   const users = useSelector(state => state.userData);
   const chatData = useSelector(state => state.chatData);
-  const { loginIndex, activeChatIndex, activeChat, chat } = chatData;
+  const { loginIndex, chat } = chatData;
 
   useEffect(() => {
-    window.onpopstate = (e) => showDashboard(dispatch);
+    window.onpopstate = (e) => {
+      showDashboard(dispatch);
+    };
   });
 
   const fetchChat = (activeIndex) => {

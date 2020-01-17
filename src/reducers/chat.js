@@ -32,13 +32,16 @@ const fetchActiveChat = (state = INITIAL_STATE.ACTIVE_CHAT, action) => {
       if (chats.length !== 0) {
         const outerIndex = payload.loginId <= payload.id ? payload.loginId : payload.id,
           innerIndex = outerIndex === payload.id ? payload.loginId : payload.id;
-        chats.map((chat, index) => {
-          if (index === outerIndex && chat[innerIndex])
+        if (chats[outerIndex]) {
+          const chat = chats[outerIndex];
+          if (chat[innerIndex]) {
             state = chat[innerIndex];
-          else {
+          } else {
             state = [];
           }
-        })
+        } else {
+          state = [];
+        }
       }
       return state;
     default:
@@ -62,7 +65,7 @@ const addChat = (state = INITIAL_STATE.CHAT, action) => {
         }
       });
 
-      if (state.length === 0) {
+      if (!state[outerIndex]) {
         const chatArray = [];
         const chatObject = {};
         chatArray.push(payload.text);

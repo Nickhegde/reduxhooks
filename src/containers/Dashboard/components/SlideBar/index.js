@@ -9,13 +9,16 @@ import './SlideBar.scss'
 
 export default function SlideBar({ fetchChat }) {
   const dispatch = useDispatch();
-  const [active, setActive] = useState(0);
   const users = useSelector(state => state.userData.users);
+  const chatData = useSelector(state => state.chatData);
+  const [active, setActive] = useState(chatData.loginIndex);
+
   const setActiveChat = (index) => {
     setActive(index);
     setActiveChatIndex(dispatch, index);
     fetchChat(index);
   }
+
   return (
     <div className='slidebar-container'>
       <div className='header'>
@@ -26,7 +29,9 @@ export default function SlideBar({ fetchChat }) {
         {
           users.map((user, index) => {
             return (
-              <div onClick={() => setActiveChat(index)} className={`user ${active === index ? 'underline' : ''}`} key={index}>{user}</div>
+              <div onClick={() => setActiveChat(index)} className={`user ${active === index ? 'underline' : ''}`} key={index}>
+                {chatData.loginIndex === index ? user.concat(STRINGS.YOU) : user}
+              </div>
             );
           })
         }

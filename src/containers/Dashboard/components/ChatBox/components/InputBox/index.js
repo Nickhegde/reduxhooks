@@ -9,13 +9,14 @@ export default function InputBox({ fetchChat, toggleChatUpdate, chatUpdate }) {
   const dispatch = useDispatch();
   const [text, setText] = useState('');
   const chatData = useSelector(state => state.chatData);
-  const { loginIndex, activeChatIndex, chat } = chatData;
+  const { loginIndex, activeChatIndex } = chatData;
   const onTextChange = (event) => {
     setText(event.target.value);
   }
 
   const onSend = () => {
-    addChat(dispatch, loginIndex, activeChatIndex, text);
+    const msg = loginIndex + text;
+    addChat(dispatch, loginIndex, activeChatIndex, msg);
     fetchChat(activeChatIndex);
     toggleChatUpdate(!chatUpdate);
     setText('');
@@ -28,8 +29,17 @@ export default function InputBox({ fetchChat, toggleChatUpdate, chatUpdate }) {
         className='text-input'
         value={text}
         onChange={onTextChange}
+        onKeyPress={event => {
+          if (event.key === 'Enter' && !event.shiftKey && text !== '') {
+            onSend();
+          }
+        }}
       ></input>
-      <button className='send-btn' onClick={text === '' ? () => { } : onSend}><SendArrow className='send-arrow'></SendArrow></button>
+      <button
+        className='send-btn'
+        onClick={text === '' ? () => { } : onSend}>
+        <SendArrow className='send-arrow'></SendArrow>
+      </button>
     </div>
   );
 }
