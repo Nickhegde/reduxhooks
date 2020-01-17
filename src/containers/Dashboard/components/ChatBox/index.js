@@ -15,9 +15,11 @@ export default function ChatBox({ fetchChat, chatData }) {
     <div className='chat-box-container'>
       <div className='chat-space'>
         {activeChat.map((msg, index) => {
+          const text = msg.substr(1);
+          const chatIndex = msg.slice(0, 1);
           return (
-            < div key={index} className='chat-txt' >
-              {msg}
+            < div key={index} className={`chat-txt ${chatIndex === loginIndex.toString() ? 'right' : 'left'}`} >
+              {text}
             </div>
           )
         })}

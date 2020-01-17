@@ -15,7 +15,8 @@ export default function InputBox({ fetchChat, toggleChatUpdate, chatUpdate }) {
   }
 
   const onSend = () => {
-    addChat(dispatch, loginIndex, activeChatIndex, text);
+    const msg = loginIndex + text;
+    addChat(dispatch, loginIndex, activeChatIndex, msg);
     fetchChat(activeChatIndex);
     toggleChatUpdate(!chatUpdate);
     setText('');
