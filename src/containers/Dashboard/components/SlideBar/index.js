@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom';
 import { STRINGS } from 'consts'
-import { setActiveChatIndex } from 'actions';
+import { showDashboard, setActiveChatIndex } from 'actions';
 
 import { Logo } from 'assets/images';
 import './SlideBar.scss'
@@ -25,6 +26,7 @@ export default function SlideBar({ fetchChat }) {
         <Logo className='App-logo' />
         <p className='title'>{STRINGS.CHAT_BOT}</p>
       </div>
+      <Link className="back" to='/' exact='true'><button className='back-btn' onClick={() => { showDashboard(dispatch) }}>{STRINGS.BACK}</button></Link>
       <div className='user-list-container'>
         {
           users.map((user, index) => {
