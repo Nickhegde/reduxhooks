@@ -32,7 +32,7 @@ function App() {
           <div className='intro'>
             <Logo className='App-logo' />
             <div className="App-link">{STRINGS.CHAT_BOT}</div>
-            <select name='user-name' id='user-name-select' onChange={onUserNameChange}>
+            <select name='user-name' className='user-name' id='user-name-select' onChange={onUserNameChange}>
               <option value="">{STRINGS.SELECT}</option>
               {users.users.map((user, index) => {
                 return (

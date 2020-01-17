@@ -4,7 +4,7 @@ import { InputBox } from './components';
 import './ChatBox.scss';
 
 export default function ChatBox({ fetchChat, chatData }) {
-  const { loginIndex, activeChatIndex, activeChat, chat } = chatData;
+  const { loginIndex, activeChatIndex, activeChat } = chatData;
   const [chatUpdate, toggleChatUpdate] = useState(false);
 
   useEffect(() => {

@@ -9,7 +9,7 @@ export default function InputBox({ fetchChat, toggleChatUpdate, chatUpdate }) {
   const dispatch = useDispatch();
   const [text, setText] = useState('');
   const chatData = useSelector(state => state.chatData);
-  const { loginIndex, activeChatIndex, chat } = chatData;
+  const { loginIndex, activeChatIndex } = chatData;
   const onTextChange = (event) => {
     setText(event.target.value);
   }
