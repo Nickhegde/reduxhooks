@@ -9,7 +9,7 @@ export default function ChatBox({ fetchChat, chatData }) {
 
   useEffect(() => {
     fetchChat(activeChatIndex);
-  }, [chatUpdate])
+  }, [chatUpdate, activeChatIndex]);
 
   return (
     <div className='chat-box-container'>

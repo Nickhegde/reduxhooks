@@ -55,7 +55,7 @@ const addChat = (state = INITIAL_STATE.CHAT, action) => {
     case CHAT.ADD_CHAT:
       const outerIndex = payload.loginId <= payload.id ? payload.loginId : payload.id,
         innerIndex = outerIndex === payload.id ? payload.loginId : payload.id;
-      state.map((chat, index) => {
+      state.forEach((chat, index) => {
         if (index === outerIndex) {
           if (chat[innerIndex]) {
             chat[innerIndex].push(payload.text)
